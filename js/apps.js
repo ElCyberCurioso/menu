@@ -152,11 +152,11 @@ window.MENU = {
       etiquetas: ["temporizador", "productividad", "concentración", "música", "tareas"],
     },
     {
-      nombre: "Transmuta",
+      nombre: "Converter",
       descripcion:
         "Conversor de archivos en el navegador: imágenes, audio, vídeo, documentos, hojas de cálculo, comprimidos, fuentes y subtítulos, sin subir nada a ningún servidor.",
       url: "/convert/",
-      icono: "img/iconos/transmuta.svg",
+      icono: "img/iconos/converter.svg",
       tipo: "app",
       etiquetas: ["convertir", "conversor", "formatos", "imagen", "audio", "vídeo", "convert"],
     },
