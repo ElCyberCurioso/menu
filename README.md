@@ -43,7 +43,11 @@ Edita `js/apps.js` y añade un objeto al array `apps`. Se muestran en el mismo o
 | `nuevaPestana` | No | `true` abre el enlace en otra pestaña. |
 | `oculto` | No | `true` mantiene la entrada en el fichero sin mostrarla. |
 
-Ahora mismo el menú incluye Poker, DungeonMess, Bomber, JMate, WarLord, WordCrash, Snake Joystick, Fretto, Pomodoro y PDF Manager. Se muestran en el orden del fichero: primero los juegos y después las aplicaciones.
+Ahora mismo el menú incluye Poker, DungeonMess, Bomber, JMate, WarLord, WordCrash, Snake Joystick, Fretto, Accordio, Pomodoro, Transmuta, PDF Manager y Triángulo de Lectores. Se muestran en el orden del fichero: primero los juegos y después las aplicaciones.
+
+### Bloque destacado
+
+`destacado`, en `js/apps.js`, se muestra grande, encima de los filtros, y no le afectan ni los filtros ni el buscador. Ahora apunta a elcybercurioso.com. Admite los mismos campos que una entrada, más `boton` (texto del botón) y `color` (el de la sombra y el botón). Sobre el nombre se muestra el dominio de la URL. También acepta una lista de objetos si algún día quieres destacar más de uno. Para quitarlo, bórralo o ponle `oculto: true`.
 
 ### Categorías
 

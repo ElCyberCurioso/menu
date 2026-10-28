@@ -25,6 +25,11 @@
  *    etiquetas     Palabras extra para el buscador: ["estrategia", "2 jugadores"]
  *    nuevaPestana  true → se abre en otra pestaña.
  *    oculto        true → no se muestra, pero la entrada queda guardada.
+ *
+ *  El bloque "destacado" se muestra grande, encima de los filtros, y no se
+ *  ve afectado por el buscador. Admite nombre, url, descripcion, icono,
+ *  boton (texto del botón), color y nuevaPestana. Sobre el nombre aparece
+ *  el dominio de la url. Para quitarlo, bórralo o ponle oculto: true.
  */
 
 window.MENU = {
@@ -41,6 +46,15 @@ window.MENU = {
   categorias: {
     juego: { nombre: "Juegos", singular: "Juego", color: "#D23369" },
     app: { nombre: "Aplicaciones", singular: "Aplicación", color: "#2552D0" },
+  },
+
+  destacado: {
+    nombre: "The RED Signal",
+    descripcion:
+      "Blog técnico de seguridad ofensiva: notas de campo, PoCs y técnicas reproducibles de red team, pentesting, exploits, análisis de malware, OSINT e ingeniería inversa.",
+    url: "https://elcybercurioso.com/",
+    boton: "Ir al blog",
+    color: "#E0323A",
   },
 
   apps: [
@@ -120,6 +134,15 @@ window.MENU = {
       etiquetas: ["guitarra", "música", "teoría musical", "acordes", "escalas"],
     },
     {
+      nombre: "Accordio",
+      descripcion:
+        "App Android para guitarristas: partituras con letra y acordes, afinador, metrónomo y diccionario. En la web consultas el catálogo y descargas la app.",
+      url: "https://accordio.site/",
+      icono: "img/iconos/accordio.svg",
+      tipo: "app",
+      etiquetas: ["guitarra", "partituras", "acordes", "android", "apk", "cancionero"],
+    },
+    {
       nombre: "Pomodoro",
       descripcion:
         "Temporizador Pomodoro con música de YouTube de fondo, tareas y estadísticas. Personalizable y sin registro.",
@@ -129,6 +152,15 @@ window.MENU = {
       etiquetas: ["temporizador", "productividad", "concentración", "música", "tareas"],
     },
     {
+      nombre: "Transmuta",
+      descripcion:
+        "Conversor de archivos en el navegador: imágenes, audio, vídeo, documentos, hojas de cálculo, comprimidos, fuentes y subtítulos, sin subir nada a ningún servidor.",
+      url: "/convert/",
+      icono: "img/iconos/transmuta.svg",
+      tipo: "app",
+      etiquetas: ["convertir", "conversor", "formatos", "imagen", "audio", "vídeo", "convert"],
+    },
+    {
       nombre: "PDF Manager",
       descripcion:
         "Une, divide, comprime, rota, marca y protege PDFs en el navegador, sin subir archivos a ningún servidor.",
@@ -136,6 +168,15 @@ window.MENU = {
       icono: "img/iconos/pdfmanager.svg",
       tipo: "app",
       etiquetas: ["pdf", "documentos", "unir", "combinar", "comprimir", "dividir"],
+    },
+    {
+      nombre: "Triángulo de Lectores",
+      descripcion:
+        "Reseñas de libros, películas, series, anime, cómics, manga y videojuegos, con puntuación de 0 a 10 y una lista de pendientes.",
+      url: "https://triangulodelectores.site/",
+      icono: "img/iconos/triangulodelectores.png",
+      tipo: "app",
+      etiquetas: ["reseñas", "libros", "películas", "series", "anime", "manga", "videojuegos"],
     },
   ],
 };

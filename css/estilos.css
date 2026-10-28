@@ -14,6 +14,12 @@
   --texto-cat: 80%;        /* texto en color de categoría… */
   --texto-cat-hacia: #000; /* …oscurecido hacia aquí */
 
+  /* Bloque destacado: oscuro en los dos temas */
+  --destacado-fondo: #0E0E10;
+  --destacado-tinta: #F1F1EC;
+  --destacado-tinta-2: #A9ACB1;
+  --destacado-borde: transparent;
+
   --fuente: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --fuente-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 
@@ -32,6 +38,7 @@
     --borde-cat: 55%;
     --texto-cat: 55%;
     --texto-cat-hacia: #fff;
+    --destacado-borde: #2C2F36;
     color-scheme: dark;
   }
 }
@@ -47,6 +54,7 @@
   --borde-cat: 55%;
   --texto-cat: 55%;
   --texto-cat-hacia: #fff;
+  --destacado-borde: #2C2F36;
   color-scheme: dark;
 }
 
@@ -184,6 +192,120 @@ a {
   margin: 1.25rem 0 0;
   font-size: 1.1875rem;
   color: var(--tinta-2);
+}
+
+/* ── Destacado ──────────────────────────────────────────────────────────── */
+
+.destacado {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.destacado__enlace {
+  --acento: #E0323A;
+  --cat: var(--acento);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1.75rem 3rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border: 1px solid var(--destacado-borde);
+  border-radius: 28px;
+  background: var(--destacado-fondo);
+  color: var(--destacado-tinta);
+  text-decoration: none;
+  box-shadow: 8px 8px 0 var(--acento);
+  transition:
+    transform 0.28s cubic-bezier(0.3, 1.5, 0.5, 1),
+    box-shadow 0.28s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.destacado__enlace:has(.ficha) {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.destacado__enlace:hover,
+.destacado__enlace:focus-visible {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 var(--acento);
+}
+
+.destacado__enlace:focus-visible {
+  outline-offset: 6px;
+}
+
+.destacado .ficha {
+  align-self: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  margin: 0;
+  border-color: var(--destacado-borde);
+}
+
+.destacado__texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.destacado__dominio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  color: var(--destacado-tinta-2);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.destacado__dominio::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--acento);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--acento) 28%, transparent);
+}
+
+.destacado__nombre {
+  margin-top: 0.6rem;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 800;
+  font-stretch: 78%;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.destacado__desc {
+  max-width: 62ch;
+  margin-top: 1rem;
+  color: var(--destacado-tinta-2);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.destacado__boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.85rem 1.35rem;
+  border-radius: 14px;
+  background: color-mix(in oklab, var(--acento) 84%, #000);
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.destacado__enlace:hover .destacado__boton {
+  background: color-mix(in oklab, var(--acento) 72%, #000);
+}
+
+.destacado__boton .item__externo {
+  color: inherit;
 }
 
 /* ── Filtros y buscador ─────────────────────────────────────────────────── */
@@ -559,6 +681,22 @@ a {
 
   .ficha__emoji {
     font-size: 2.35rem;
+  }
+
+  .destacado__enlace,
+  .destacado__enlace:has(.ficha) {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 22px;
+    box-shadow: 6px 6px 0 var(--acento);
+  }
+
+  .destacado__boton {
+    justify-self: start;
+  }
+
+  .destacado .ficha {
+    width: 4.75rem;
+    height: 4.75rem;
   }
 }
 

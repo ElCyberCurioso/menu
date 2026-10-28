@@ -34,6 +34,7 @@
 
   pintarCabecera();
   pintarPie();
+  pintarDestacado();
 
   const apps = config.apps
     .map((entrada, i) => normalizar(entrada, i))
@@ -158,6 +159,65 @@
       pie.append(fila);
       pie.hidden = false;
     }
+  }
+
+  /* ── Destacado ─────────────────────────────────────────────────────── */
+
+  // Admite un objeto o una lista de objetos en config.destacado.
+  function pintarDestacado() {
+    const contenedor = $("destacado");
+    const entradas = [].concat(config.destacado || []).filter((d) => d && !d.oculto);
+
+    entradas.forEach((d, i) => {
+      const nombre = String(d.nombre || "").trim();
+      const url = urlSegura(d.url);
+      if (!nombre || !url) {
+        console.warn('[menú] Destacado ignorado: necesita "nombre" y una "url" válida.', d);
+        return;
+      }
+
+      const id = `destacado-${i}`;
+      const a = crear("a", "destacado__enlace");
+      a.href = url;
+      a.setAttribute("aria-labelledby", `${id}-nombre`);
+      if (typeof d.color === "string" && d.color.trim()) {
+        a.style.setProperty("--acento", d.color.trim());
+      }
+      if (d.nuevaPestana === true) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+
+      const icono = String(d.icono || "").trim();
+      if (icono) a.append(crearFicha({ nombre, icono }));
+
+      const texto = crear("span", "destacado__texto");
+      const dominio = new URL(url).hostname.replace(/^www\./, "");
+      texto.append(crear("span", "destacado__dominio", dominio));
+
+      const titulo = crear("span", "destacado__nombre", nombre);
+      titulo.id = `${id}-nombre`;
+      if (d.nuevaPestana === true) {
+        titulo.append(crear("span", "sr", " (se abre en otra pestaña)"));
+      }
+      texto.append(titulo);
+
+      if (d.descripcion) {
+        const desc = crear("span", "destacado__desc", String(d.descripcion));
+        desc.id = `${id}-desc`;
+        a.setAttribute("aria-describedby", desc.id);
+        texto.append(desc);
+      }
+
+      const boton = crear("span", "destacado__boton", String(d.boton || "Visitar la web"));
+      boton.setAttribute("aria-hidden", "true");
+      if (d.nuevaPestana === true) boton.append(iconoExterno());
+
+      a.append(texto, boton);
+      contenedor.append(a);
+    });
+
+    contenedor.hidden = contenedor.children.length === 0;
   }
 
   /* ── Filtros ───────────────────────────────────────────────────────── */
