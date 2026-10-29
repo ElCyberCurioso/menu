@@ -43,7 +43,7 @@ Edita `js/apps.js` y añade un objeto al array `apps`. Se muestran en el mismo o
 | `nuevaPestana` | No | `true` abre el enlace en otra pestaña. |
 | `oculto` | No | `true` mantiene la entrada en el fichero sin mostrarla. |
 
-Ahora mismo el menú incluye Poker, DungeonMess, Bomber, JMate, WarLord, WordCrash, Snake Joystick, Fretto, Accordio, Pomodoro, Converter, PDF Manager y Triángulo de Lectores. Se muestran en el orden del fichero: primero los juegos y después las aplicaciones.
+Ahora mismo el menú incluye Poker, BlackJack, DungeonMess, Bomber, JMate, WildPool, WarLord, WordCrash, Snake Joystick, Fretto, Accordio, Pomodoro, Converter, PDF Manager y Triángulo de Lectores. Se muestran en el orden del fichero: primero los juegos y después las aplicaciones.
 
 ### Bloque destacado
 

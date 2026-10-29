@@ -69,6 +69,15 @@ window.MENU = {
       etiquetas: ["póquer", "cartas", "texas hold'em", "multijugador", "bots"],
     },
     {
+      nombre: "BlackJack",
+      descripcion:
+        "Blackjack multijugador con salas privadas, chat, mesas de casino reales y un zapato de verdad para contar cartas. Incluye entrenador de conteo y bots.",
+      url: "/blackjack/",
+      icono: "img/iconos/blackjack.svg",
+      tipo: "juego",
+      etiquetas: ["21", "veintiuno", "cartas", "casino", "conteo", "multijugador", "bots"],
+    },
+    {
       nombre: "DungeonMess",
       descripcion:
         "Roguelike incremental de mazmorras: armas a una y dos manos, árbol de habilidades y enemigos cada vez más fuertes.",
@@ -94,6 +103,15 @@ window.MENU = {
       icono: "img/iconos/jmate.svg",
       tipo: "juego",
       etiquetas: ["ajedrez", "chess", "aperturas", "multijugador", "bots"],
+    },
+    {
+      nombre: "WildPool",
+      descripcion:
+        "Billar con amigos o contra la CPU: salas privadas con enlace, chat y cinco modos, como Bola 8, Bola 9 o Carambola. Taco, mesa y bolas personalizables.",
+      url: "/wildpool/",
+      icono: "img/iconos/wildpool.svg",
+      tipo: "juego",
+      etiquetas: ["billar", "pool", "bola 8", "bola 9", "carambola", "multijugador"],
     },
     {
       nombre: "WarLord",
